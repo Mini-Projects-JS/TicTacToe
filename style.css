@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(36, 36, 36);
+}
+
+.mainContainer {
+    font-family: monospace;
+    color: rgb(231, 231, 231);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    padding: 7px;
+    background-image: linear-gradient( 83.2deg,  rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3% );
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.box {
+    grid-area: span 1;
+    background-color: rgb(36, 36, 36);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 10px solid rgb(255, 230, 160);
+}
+
+.cross {
+    width: 55px;
+    height: 55px;
+    position: relative;
+}
+
+.cross::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 100%;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: rgb(255, 88, 88);
+}
+
+.cross::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 100%;
+    transform: translateX(-50%) rotate(-45deg);
+    background-color: rgb(255, 88, 88);
+}
+
+.box:hover {
+    transform: scale(0.9);
+}
+
+.score {
+    width: 100%;
+    margin-top: 20px;
+    outline: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.scoreItem {
+    font-size: 14px;
+    grid-area: span 1;
+    outline: 1px solid white;
+    /* padding: 7px 10px; */
+    text-transform: capitalize;
+}
+
+.scoreItem >h3 {
+    padding: 10px;
+    border-bottom: 2px solid white;
+}
+
+.p1Score, .p2Score, .winner {
+    /* margin-top: 5px; */
+    padding: 10px;
+    font-size: 15px;
+}
